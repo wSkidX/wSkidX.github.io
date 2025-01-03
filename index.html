@@ -3,43 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enkripsi Web</title>
+    <title>Encryptor</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Web Enkripsi</h1>
+        <h1>Dark Web Encryptor</h1>
         
-        <div class="input-group">
-            <label>Masukkan HTML:</label>
-            <textarea id="htmlInput" rows="5"></textarea>
+        <div class="mode-selector">
+            <button class="mode-btn" onclick="switchMode('single')">Single File</button>
+            <button class="mode-btn" onclick="switchMode('separate')">Separate Files</button>
         </div>
 
-        <div class="input-group">
-            <label>Masukkan CSS:</label>
-            <textarea id="cssInput" rows="5"></textarea>
-        </div>
-
-        <div class="input-group">
-            <label>Masukkan JavaScript:</label>
-            <textarea id="jsInput" rows="5"></textarea>
-        </div>
-
-        <button onclick="enkripsiSemua()">Enkripsi</button>
-
-        <div class="output-group">
-            <h3>Hasil Enkripsi:</h3>
-            <div class="result">
-                <h4>HTML Terenkripsi:</h4>
-                <textarea id="htmlOutput" readonly></textarea>
+        <div id="single-mode" class="input-mode hidden">
+            <div class="input-group">
+                <label>Combined HTML, CSS, and JS Code:</label>
+                <textarea id="combinedInput" rows="10" placeholder="Paste your complete webpage code here..."></textarea>
             </div>
+            <button class="encrypt-btn" onclick="enkripsiGabungan()">Encrypt All</button>
             <div class="result">
-                <h4>CSS Terenkripsi:</h4>
-                <textarea id="cssOutput" readonly></textarea>
+                <h4>Encrypted Output:</h4>
+                <textarea id="combinedOutput" readonly></textarea>
             </div>
-            <div class="result">
-                <h4>JavaScript Terenkripsi:</h4>
-                <textarea id="jsOutput" readonly></textarea>
+        </div>
+
+        <div id="separate-mode" class="input-mode">
+            <div class="file-selector">
+                <button class="file-btn active" onclick="showFile('html')">HTML</button>
+                <button class="file-btn" onclick="showFile('css')">CSS</button>
+                <button class="file-btn" onclick="showFile('js')">JavaScript</button>
+            </div>
+
+            <div id="html-section" class="file-section">
+                <div class="input-group">
+                    <label>HTML Input:</label>
+                    <textarea id="htmlInput" rows="10"></textarea>
+                </div>
+                <button class="encrypt-btn" onclick="enkripsiHTML(document.getElementById('htmlInput').value)">Encrypt HTML</button>
+                <div class="result">
+                    <h4>Encrypted HTML:</h4>
+                    <textarea id="htmlOutput" readonly></textarea>
+                </div>
+            </div>
+
+            <div id="css-section" class="file-section hidden">
+                <div class="input-group">
+                    <label>CSS Input:</label>
+                    <textarea id="cssInput" rows="10"></textarea>
+                </div>
+                <button class="encrypt-btn" onclick="enkripsiCSS(document.getElementById('cssInput').value)">Encrypt CSS</button>
+                <div class="result">
+                    <h4>Encrypted CSS:</h4>
+                    <textarea id="cssOutput" readonly></textarea>
+                </div>
+            </div>
+
+            <div id="js-section" class="file-section hidden">
+                <div class="input-group">
+                    <label>JavaScript Input:</label>
+                    <textarea id="jsInput" rows="10"></textarea>
+                </div>
+                <button class="encrypt-btn" onclick="enkripsiJS(document.getElementById('jsInput').value)">Encrypt JavaScript</button>
+                <div class="result">
+                    <h4>Encrypted JavaScript:</h4>
+                    <textarea id="jsOutput" readonly></textarea>
+                </div>
             </div>
         </div>
     </div>
