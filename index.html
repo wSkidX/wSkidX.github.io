@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkripsi Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Enkripsi</h1>
+        
+        <div class="input-group">
+            <label>Masukkan HTML:</label>
+            <textarea id="htmlInput" rows="5"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Masukkan CSS:</label>
+            <textarea id="cssInput" rows="5"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Masukkan JavaScript:</label>
+            <textarea id="jsInput" rows="5"></textarea>
+        </div>
+
+        <button onclick="enkripsiSemua()">Enkripsi</button>
+
+        <div class="output-group">
+            <h3>Hasil Enkripsi:</h3>
+            <div class="result">
+                <h4>HTML Terenkripsi:</h4>
+                <textarea id="htmlOutput" readonly></textarea>
+            </div>
+            <div class="result">
+                <h4>CSS Terenkripsi:</h4>
+                <textarea id="cssOutput" readonly></textarea>
+            </div>
+            <div class="result">
+                <h4>JavaScript Terenkripsi:</h4>
+                <textarea id="jsOutput" readonly></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
